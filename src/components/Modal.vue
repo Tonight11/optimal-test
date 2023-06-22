@@ -1,6 +1,18 @@
 <script>
 	export default {
 		emits: ['closeModal'],
+		data() {
+			return {
+				previous: null,
+			};
+		},
+		mounted() {
+			this.previous = document.body.style.overflow;
+			document.body.style.overflow = 'hidden';
+		},
+		unmounted() {
+			document.body.style.overflow = this.previous;
+		},
 	};
 </script>
 
